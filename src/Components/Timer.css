@@ -1,0 +1,54 @@
+.timer-container {
+  background: #f0f0f0;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 40px;
+}
+
+.timer-text {
+  font-size: 3rem;
+  margin: 20px 0;
+  color: #333;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-start {
+  background-color: green;
+}
+
+.btn-pause {
+  background-color: orange;
+}
+
+.btn-stop {
+  background-color: red;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.lottie-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 auto;
+}
