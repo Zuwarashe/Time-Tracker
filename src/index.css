@@ -50,13 +50,12 @@ body.dark .app-container {
   margin: 20px 0;
 }
 
-.lottie-placeholder {
-  width: 100px;
-  height: 100px;
+.lottie-container {
   margin: 0 auto;
-  background: rgba(150, 150, 150, 0.2);
-  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
 }
+
 
 .button-group {
   display: flex;
