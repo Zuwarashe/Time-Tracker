@@ -1,11 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import useTimer from '../Hooks/useTimer';
 import Lottie from 'lottie-react';
 import hourglass from '../Assets/hourglass.json';
+import book from '../Assets/book.json';
 
-export default function Timer() {
+export default function Timer({ onSave }) {
   const { time, running, start, pause, stop } = useTimer();
-  const lottieRef = useRef();
+  const [useAlt, setUseAlt] = useState(false);
+
+  const toggleAnimation = () => setUseAlt(prev => !prev);
 
   const formatTime = (s) => {
     const mins = String(Math.floor(s / 60)).padStart(2, '0');
@@ -13,27 +16,22 @@ export default function Timer() {
     return `${mins}:${secs}`;
   };
 
-  // Control animation playback manually
-  useEffect(() => {
-    if (lottieRef.current) {
-      if (running) {
-        lottieRef.current.play();
-      } else {
-        lottieRef.current.stop();
-      }
-    }
-  }, [running]);
+  const handleStop = () => {
+    if (onSave && time > 0) onSave(time);
+    stop();
+  };
 
   return (
     <div className="timer-section">
       <div className="lottie-container">
         <Lottie
-          lottieRef={lottieRef}
-          animationData={hourglass}
-          loop
-          autoplay={false}
+          animationData={useAlt ? book : hourglass}
+          loop={running}
           style={{ width: '100%', maxWidth: 180 }}
         />
+        <button onClick={toggleAnimation} className="swap-button">
+          🔁 Swap Style
+        </button>
       </div>
 
       <h1 className="timer-display">{formatTime(time)}</h1>
@@ -44,7 +42,7 @@ export default function Timer() {
         ) : (
           <>
             <button onClick={pause} className="pause">Pause</button>
-            <button onClick={stop} className="stop">Stop</button>
+            <button onClick={handleStop} className="stop">Stop</button>
           </>
         )}
       </div>

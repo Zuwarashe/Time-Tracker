@@ -34,6 +34,16 @@ export default function App() {
     }
   };
 
+  const handleTimerSave = (seconds) => {
+  const name = prompt("Task name for this session:");
+  if (name) {
+    const hours = +(seconds / 3600).toFixed(2); // convert to hours
+    const newTask = { name, hours };
+    setTasks(prev => [...prev, newTask]);
+  }
+};
+
+
   const { toggleTheme, theme } = useTheme();
 
   return (
@@ -41,7 +51,7 @@ export default function App() {
       <button onClick={toggleTheme} className="toggle-button">
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
       </button>
-      <Timer />
+      <Timer onSave={handleTimerSave} />
       <TaskForm onAdd={addTask} />
       <TaskList tasks={tasks} onDelete={deleteTask} onEdit={editTask} />
     </div>
