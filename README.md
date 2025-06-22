@@ -22,6 +22,7 @@ A simple time tracking web app built for  **Looped Automation **. It lets users 
 - Animated hourglass with theme swap
 - Light/Dark mode toggle
 - Data persists per browser/device
+- Wireframe : https://www.figma.com/design/vtlfYHcAHoBDAfTRjhBoqG/Time-Tracker-Wireframe?node-id=0-1&t=dkN1Xie6Bf7JHJBP-1
 
 ---
 
