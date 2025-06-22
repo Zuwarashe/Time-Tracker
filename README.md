@@ -6,6 +6,7 @@ A simple time tracking web app built for  **Looped Automation **. It lets users 
 
 ## 🧑‍💻 Built With
 
+- **Figma** for wireframe
 - **React (JavaScript)**
 - **CSS** (no Tailwind)
 - **Lottie React** for animation
